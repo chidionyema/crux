@@ -1,0 +1,9 @@
+# Build output
+bin/
+obj/
+# Local NuGet pack output (regenerated via `dotnet pack`)
+nupkg/
+# IDE / OS
+.vs/
+*.user
+.DS_Store

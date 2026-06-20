@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>Crux.Storage</RootNamespace>
+    <AssemblyName>Crux.Storage</AssemblyName>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Description>Crux cloud storage: IBlobStore (presigned upload/download URLs + delete), S3/R2/MinIO-compatible</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Pinned to v4 to match consumer (Store.Api) AWSSDK.S3 version. A mismatch compiles green but
+         throws MissingMethodException at runtime (GetPreSignedUrlRequest.Expires signature changed in
+         v4) — the presigned-URL money path breaks. Keep aligned with consumers / a central feed. -->
+    <PackageReference Include="AWSSDK.S3" Version="4.0.23" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.4" />
+  </ItemGroup>
+</Project>
